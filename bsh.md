@@ -293,3 +293,28 @@ md data data.gzip
 7z l data.gzip
 ```
 
++ Extract
+```bash
+7z x data.gzip
+```
+
++ Grep filtering
+```bash
+7z l data.gzip | grep "Name"
+```
+
++ FIlteirng by files
+```bash
+7z l data.gzip | grep "Name" -A 2
+```
+
++ Final sentence
+```bash
+7z l data.gzip | grep "Name" -A 2 | tail -n 1 | AWK 'NF{print $NF}'
+```
+
+
+
+
+
+
