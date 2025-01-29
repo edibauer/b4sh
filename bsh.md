@@ -313,6 +313,116 @@ md data data.gzip
 7z l data.gzip | grep "Name" -A 2 | tail -n 1 | AWK 'NF{print $NF}'
 ```
 
++ State codes
+```bash
+echo $? # only 0 or 1
+```
+
++ concat commands
+```bash
+whoami && ls # Only if the first command exits with 0
+whoami || ls # Only if the first command exits with 1
+```
+
+FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+
+### 14
+Private keys
+
++ ssh file
+```bash 
+cd /root # su
+cd .ssh
+nano /etc/ssh/ssh_config # ssh config file
+# put yes on PermitRootLogin
+service ssh start # starting ssh
+service ssh restart # restarting ssh
+service ssh status # checking the status of ssh
+```
+
++ Creating keys
+```bash
+ssh-keygen # id_rsa, id_rsa.pub
+```
+Rename .pub to authorized_keys and put it on ssh dir from user
+
+```bash
+exit # close session
+```
+
++ Identity file
+```bash
+ssh-copy-id -i id_rsa
+ssh -i id_rsa root@ocalhost -p 2220# to connect via ssh
+```
+
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+
+### 15
++ View open ports
+```bash
+echo '' > /dev/tcp/127.0.0.1/30000
+echo $? # 0 if open
+echo '' > /dev/tcp/127.0.0.1/30000 && echo "[+] Open port" || echo "[+] Puerto cerrado"
+```
+
++ bash console
+```bash
+bash -c "echo '' > /dev/tcp/127.0.0.1/30000" 2>/dev/null && echo "[+] Open port" || echo "[+] Puerto cerrado"
+```
+
++ connect to port
+```bash
+cat /etc/bandit_pass/bandit14 | nc localhost 30000
+```
+
+8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+
+### 16
++ connect openSSL
+```bash
+openssl s_client -connect 127.0.0.1:30001 # put password
+```
+kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+
+### 17
++ Open ports nmap
+```bash
+nmap --open -T5 -v -n -p31000-32000 127.0.0.1
+nmap --open -T5 -v -n -p31000-32000 127.0.0.1 | tail -n 8 | head -n 5 | cut -d '/' -f 1 # get all ports
+```
+
++ Prove ssl
+```bash
+nmap --open -T5 -v -n -p31000-32000 127.0.0.1 | tail -n 8 | head -n 5 | cut -d '/' -f 1 | xargs -I {} openssl s_client -connect 127.0.0.1:{}
+```
+
+```bash
+nmap --open -T5 -v -n -p31000-32000 127.0.0.1 | tail -n 8 | head -n 5 | cut -d '/' -f 1 | while read line; do openssl s_client -connect 127.0.0.1:$line; done
+```
+
++ temporal dirs
+```bash
+mktemp -d
+touch id_rsa # paste ppk
+chmod 600 id_rsa # change permissions
+ssh -i id_rsa bandit17@localhost -p 2220
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
