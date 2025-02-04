@@ -409,6 +409,35 @@ chmod 600 id_rsa # change permissions
 ssh -i id_rsa bandit17@localhost -p 2220
 ```
 
+### 18
+```bash
+ps -eo command #  view all the executing commands
+```
+
++ FIlter by criteria (omit command results)
+```bash
+cat /etc/passwd/ | head -n 5 | grep -v root # show all except 'root' 
+```
+
++ FIltering by multiple commands
+```bash
+cat /etc/passwd/ | head -n 5 | grep -E "^root|^bin"
+```
+
+x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
+
+### 19
++ spwanear bash
+```bash
+ssh bandit18@bandit.labs.overthewire.org -p 2220 bash
+```
+cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
+
+### 20
+![alt text](image.png)
+
+0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+
 
 
 
