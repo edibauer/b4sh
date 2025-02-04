@@ -438,6 +438,36 @@ cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
 
 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
 
+### 21
++ Listening
+```bash
+nc -nlvp 5757
+```
+
+EeoULMCra2q0dSkYj561DX7s1CpBuOBt
++ cron
+
+tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
+
+### 22
++ md5sum
+```bash
+echo "hola" | md5sum | awk '{print $1}' # only prints the first argument
+```
+
+0Zf11ioIjMVN551jX3CmStKLYqjk54Ga
+
+### 23
+```bash
+watch -n 1 ls -l # execute commando every second
+```
+>
+
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+
+
+
+
 
 
 
